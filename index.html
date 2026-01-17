@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinner Creek Bees | Live Honey Bee Removal & Swarm Rescue</title>
+  <meta name="description" content="Dinner Creek Bees provides live honey bee removal and swarm rescue in Southeast Texas. Veteran owned. Humane relocation. Cut-out coordination. No repairs performed." />
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #151515;
+      --accent: #f5b400;
+      --accent-soft: #ffe08a;
+      --text: #f8f8f8;
+      --muted: #b3b3b3;
+      --danger: #ff5959;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b1204 0, #050505 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    header { text-align: center; padding: 1.5rem 0 1rem; }
+    .logo-text { font-size: 1.9rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .logo-highlight { color: var(--accent); }
+    .tagline { margin-top: 0.5rem; color: var(--muted); font-size: 0.95rem; }
+
+    .hero {
+      margin-top: 1.75rem;
+      background: linear-gradient(135deg, #1b1304, #221106);
+      border-radius: 18px;
+      padding: 1.75rem 1.4rem;
+      border: 1px solid #3a2a0e;
+      box-shadow: 0 22px 45px rgba(0,0,0,0.7);
+    }
+    .hero-top { display: flex; flex-direction: column; gap: 1.25rem; }
+    @media (min-width: 720px) {
+      .hero-top { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    .hero-text { max-width: 560px; }
+    .hero-title { font-size: 1.8rem; font-weight: 800; }
+    .hero-title span { color: var(--accent); }
+    .hero-sub { margin-top: 0.6rem; font-size: 0.99rem; color: var(--accent-soft); }
+
+    .hero-badge-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.9rem; }
+    .badge {
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.78rem;
+      border: 1px solid rgba(245, 180, 0, 0.5);
+      background: rgba(0,0,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .badge-texas { border-color: rgba(255,255,255,0.3); }
+
+    .hero-cta { margin-top: 1.3rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .btn-primary {
+      background: var(--accent);
+      color: #1b1304;
+      border-radius: 999px;
+      padding: 0.65rem 1.7rem;
+      font-weight: 800;
+      font-size: 1.02rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      transition: transform 0.05s ease-out, box-shadow 0.05s ease-out, background 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(0,0,0,0.65); background: #ffc534; }
+    .btn-primary span { font-size: 1.15rem; }
+    .hero-phone-text { font-size: 0.9rem; color: var(--muted); }
+    .hero-phone-number { font-weight: 800; color: var(--accent-soft); }
+
+    .hero-right { text-align: left; }
+    @media (min-width: 720px) { .hero-right { text-align: right; } }
+    .emergency { font-size: 0.85rem; color: var(--danger); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.55rem; justify-content: flex-start; }
+    @media (min-width: 720px) { .pill-list { justify-content: flex-end; } }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.15rem 0.55rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    main { margin-top: 2rem; display: grid; gap: 1.5rem; }
+    @media (min-width: 900px) { main { grid-template-columns: 1.8fr 1.2fr; align-items: flex-start; } }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.2rem 1.1rem 1.3rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+    .card + .card { margin-top: 0.85rem; }
+    .card h2 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+    .card h3 { font-size: 0.95rem; margin: 0.7rem 0 0.25rem; color: var(--accent-soft); }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    ul { list-style: none; margin-top: 0.35rem; }
+    li { font-size: 0.9rem; color: var(--muted); padding-left: 1rem; position: relative; margin-bottom: 0.25rem; }
+    li::before { content: "•"; position: absolute; left: 0.2rem; color: var(--accent); }
+    .notice {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+      border-left: 3px solid rgba(255,255,255,0.12);
+      padding-left: 0.7rem;
+    }
+    .highlight { color: var(--accent-soft); font-weight: 800; }
+    footer { margin-top: 2.2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    .footer-small { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.85; }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-text">
+        <span class="logo-highlight">Dinner Creek</span> Bees
+      </div>
+      <p class="tagline">
+        Live Honey Bee Removal & Swarm Rescue • Southeast Texas • Veteran Owned
+      </p>
+    </header>
+
+    <section class="hero">
+      <div class="hero-top">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Live <span>Honey Bee Removal</span> & Swarm Rescue
+          </h1>
+          <p class="hero-sub">
+            Humane, chemical-free removals with safe relocation of honey bees — not extermination.
+            Serving Harris County and surrounding areas.
+          </p>
+
+          <div class="hero-badge-row">
+            <div class="badge badge-texas">Veteran Owned</div>
+            <div class="badge">Live Bee Removal</div>
+            <div class="badge">Swarm Rescue</div>
+            <div class="badge">Cut-Out Coordination</div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="tel:13466343852" class="btn-primary">
+              <span>📞</span> Call Now – 346-634-3852
+            </a>
+            <div class="hero-phone-text">
+              Tap to call: <span class="hero-phone-number">346-634-3852</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="emergency">Please don’t spray — call a beekeeper.</div>
+          <div class="pill-list">
+            <div class="pill">Fresh swarms</div>
+            <div class="pill">Soffits / eaves</div>
+            <div class="pill">Walls & sheds</div>
+            <div class="pill">Trees & fences</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section>
+        <div class="card">
+          <h2>Services</h2>
+
+          <h3>Swarm Pickup</h3>
+          <p>
+            Clusters of bees hanging on a branch, fence, or other surface. These are usually quick, clean removals.
+          </p>
+
+          <h3>Established Colonies in Structures</h3>
+          <p>
+            Bees inside walls, soffits, sheds, or other cavities. We remove the bees and comb and coordinate access
+            with you or your contractor.
+          </p>
+
+          <h3>Humane Relocation</h3>
+          <p>
+            Bees are relocated to managed hives instead of being exterminated — better for pollinators and the environment.
+          </p>
+
+          <p class="notice">
+            <span class="highlight">No repairs performed.</span><br />
+            Dinner Creek Bees removes bees and comb only. Any openings (cutting), repairs, or cosmetic work are the responsibility
+            of the property owner and/or their chosen contractor.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>What to Do If You’ve Found Bees</h2>
+          <ul>
+            <li>Keep children and pets away from the area.</li>
+            <li>Do not spray pesticides, foam, or water on the bees.</li>
+            <li>Do not block or seal their entrance.</li>
+            <li>Take a clear photo from a safe distance if possible.</li>
+            <li>Call or text <span class="highlight">346-634-3852</span> with your location and a brief description.</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Why Dinner Creek Bees?</h2>
+          <ul>
+            <li>Veteran owned and operated.</li>
+            <li>Focused on live removal and relocation, not extermination.</li>
+            <li>Construction background helps plan smart access with your contractor.</li>
+            <li>Local beekeeper invested in long-term hive health.</li>
+          </ul>
+        </div>
+
+        <div class="card" id="contact" style="margin-top: 1.5rem;">
+          <h2>Service Area & Contact</h2>
+          <p><span class="highlight">Phone:</span> <a class="highlight" href="tel:13466343852">346-634-3852</a></p>
+          <p style="margin-top:0.4rem;">Harris County, TX and surrounding communities.</p>
+          <p class="notice" style="margin-top:0.8rem;">
+            Fastest way to help your bees and protect your property is to <a class="highlight" href="tel:13466343852">call now</a>.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Dinner Creek Bees. All rights reserved.</div>
+      <div class="footer-small">Live Honey Bee Removal & Swarm Rescue • Southeast Texas • Veteran Owned</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+  </html>
