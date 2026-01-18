@@ -1,587 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dinner Creek Bees | Live Honey Bee Removal</title>
 
-  <title>Dinner Creek Bees | Live Honey Bee Removal & Swarm Rescue</title>
-  <meta
-    name="description"
-    content="Dinner Creek Bees provides live honey bee removal and swarm rescue in Southeast Texas. Veteran owned. Humane relocation. Cut-out coordination. No repairs performed."
-  />
+<style>
+:root {
+  --accent: #ffd86a;
+  --accent-deep: #f5b400;
+  --text-main: #ffffff;
+  --text-soft: #e8e8e8;
+  --panel-bg: rgba(5, 7, 12, 0.65);   /* MORE TRANSPARENT */
+  --panel-border: rgba(255, 216, 106, 0.35);
+  --radius: 22px;
+}
 
-  <style>
-    :root {
-      --bg-dark: #050609;
-      --card-dark: rgba(5, 7, 12, 0.90);
-      --accent: #ffc94a;
-      --accent-soft: #ffd86a;
-      --accent-deep: #f5a623;
-      --accent-pill: rgba(255, 206, 109, 0.08);
-      --text-main: #fdfdfd;
-      --text-soft: #e1e1e1;
-      --text-muted: #b7bcc5;
-      --danger-bar: #b74125;
-      --pill-border: rgba(255, 216, 106, 0.55);
-      --max-width: 1120px;
-      --radius-lg: 22px;
-      --radius-pill: 999px;
-      --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.75);
-    }
+/* ================= BODY + BACKGROUND ================= */
 
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background-image: url("assets/label-round.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      color: var(--text-main);
-      background-color: var(--bg-dark);
-      /* FULL-PAGE LABEL BACKGROUND */
-      background-image: url("assets/label-round.jpg");
-      background-size: cover;
-      background-position: center 40%;
-      background-repeat: no-repeat;
-      background-attachment: fixed; /* stays put while you scroll */
-    }
+/* lighter overlay so creek shows */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.75)
+    );
+}
 
-    /* Dark overlay on top of image for readability */
-    .bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(0, 0, 0, 0.15) 0%,
-          rgba(0, 0, 0, 0.85) 55%,
-          rgba(0, 0, 0, 0.96) 90%
-        );
-      mix-blend-mode: multiply;
-    }
+.page {
+  position: relative;
+  z-index: 1;
+}
 
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* ================= HEADER ================= */
 
-    /* ===== Site Header (floats over background) ===== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 7, 12, 0.9),
-        rgba(5, 7, 12, 0.5),
-        transparent
-      );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(5,7,12,0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-    .site-header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .site-logo {
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      color: var(--accent-soft);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
-      white-space: nowrap;
-    }
+.logo {
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
 
-    .site-tagline {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      text-align: right;
-      max-width: 420px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
-    }
+.tagline {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-align: right;
+}
 
-    /* ===== Hero Section ===== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px 52px;
-    }
+/* ================= HERO ================= */
 
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-      gap: 26px;
-      align-items: center;
-    }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 20px;
+}
 
-    .hero-panel {
-      background: linear-gradient(
-        135deg,
-        rgba(5, 7, 12, 0.95),
-        rgba(5, 7, 12, 0.88)
-      );
-      border-radius: 32px;
-      padding: 26px 26px 26px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
+.hero-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 24px;
+}
 
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top left,
-        rgba(255, 207, 112, 0.16),
-        transparent 60%
-      );
-      opacity: 0.9;
-      pointer-events: none;
-    }
+.panel {
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  padding: 26px;
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(8px);
+}
 
-    .hero-title {
-      position: relative;
-      margin: 0 0 12px;
-      font-size: clamp(2.1rem, 4vw, 2.6rem);
-      line-height: 1.12;
-      letter-spacing: 0.02em;
-    }
+.hero h1 {
+  font-size: 2.4rem;
+  margin: 0 0 12px;
+}
 
-    .hero-title span {
-      color: var(--accent-soft);
-    }
+.hero h1 span {
+  color: var(--accent);
+}
 
-    .hero-sub {
-      position: relative;
-      margin: 0 0 18px;
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      max-width: 34rem;
-    }
+.hero p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
 
-    .hero-pills {
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
 
-    .pill {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--pill-border);
-      background: var(--accent-pill);
-      color: var(--accent-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
+.pill {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255,216,106,0.12);
+  color: var(--accent);
+}
 
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-    }
+/* ================= CALL BUTTON ================= */
 
-    /* Call-to-action row */
-    .hero-cta-row {
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-top: 10px;
-    }
+.call-row {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-    .hero-call-btn {
-      flex: 1 1 210px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-      border: none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: #2b1a02;
-      text-decoration: none;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
-      cursor: pointer;
-      transition: transform 0.06s ease, box-shadow 0.06s ease,
-        filter 0.06s ease;
-    }
+.call-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #2a1a00;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.8);
+}
 
-    .hero-call-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
-    }
+.call-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
 
-    .hero-call-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.85);
-    }
+/* ================= CONTENT ================= */
 
-    .phone-icon {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      border: 2px solid rgba(43, 26, 2, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      background: rgba(255, 255, 255, 0.8);
-      color: #2b1a02;
-    }
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .hero-tap-note {
-      flex: 1 1 160px;
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      text-align: center;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
 
-    .hero-tap-note strong {
-      color: var(--accent-soft);
-      font-weight: 600;
-    }
+.notice {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: rgba(160,55,35,0.85);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 
-    /* Right panel: reasons */
-    .hero-panel.right {
-      background: linear-gradient(
-        135deg,
-        rgba(5, 7, 12, 0.94),
-        rgba(5, 7, 12, 0.90)
-      );
-    }
+/* ================= FOOTER ================= */
 
-    .hero-panel.right::before {
-      background: radial-gradient(
-        circle at top right,
-        rgba(255, 207, 112, 0.18),
-        transparent 60%
-      );
-    }
+footer {
+  padding: 18px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #d4d4d4;
+  background: rgba(5,7,12,0.6);
+  backdrop-filter: blur(8px);
+}
 
-    .hero-panel h2 {
-      position: relative;
-      margin: 0 0 12px;
-      font-size: 1.1rem;
-    }
+/* ================= MOBILE ================= */
 
-    .hero-panel ul {
-      position: relative;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    .hero-panel li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 6px;
-    }
-
-    .hero-panel li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent-soft);
-    }
-
-    /* ===== Main content ===== */
-    main {
-      padding: 14px 20px 40px;
-    }
-
-    .content-grid {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card-dark);
-      border-radius: var(--radius-lg);
-      padding: 20px 22px 20px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(8px);
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.18rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    h3 {
-      margin: 14px 0 6px;
-      font-size: 1rem;
-      color: var(--accent-soft);
-    }
-
-    p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: var(--text-soft);
-    }
-
-    .notice-bar {
-      margin-top: 26px;
-      padding: 10px 18px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(
-        to right,
-        rgba(183, 65, 37, 0.98),
-        rgba(110, 26, 14, 0.98)
-      );
-      color: #fdf4ec;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85);
-    }
-
-    .notice-bar strong {
-      font-weight: 700;
-    }
-
-    .service-area {
-      margin-top: 18px;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    .service-area strong {
-      color: var(--accent-soft);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      margin-top: auto;
-      padding: 16px 20px 22px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: center;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(
-        to top,
-        rgba(5, 7, 12, 0.96),
-        rgba(5, 7, 12, 0.75),
-        transparent
-      );
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    footer span {
-      color: var(--accent-soft);
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 860px) {
-      .hero {
-        padding-top: 96px;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-panel.right {
-        order: -1;
-      }
-
-      .site-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .site-tagline {
-        text-align: left;
-      }
-
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .hero-panel {
-        padding: 20px 18px 18px;
-      }
-
-      .hero-title {
-        font-size: 1.8rem;
-      }
-
-      .hero-cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-tap-note {
-        text-align: left;
-      }
-
-      .card {
-        padding: 18px 16px 16px;
-      }
-    }
-  </style>
+@media (max-width: 860px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .tagline {
+    text-align: left;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
-  <!-- fixed dark overlay on top of the label background -->
-  <div class="bg-overlay"></div>
+<div class="bg-overlay"></div>
 
-  <div class="page">
-    <header class="site-header">
-      <div class="site-header-inner">
-        <div class="site-logo">DINNER CREEK BEES</div>
-        <div class="site-tagline">
-          Live Honey Bee Removal &amp; Swarm Rescue • Southeast Texas • Veteran
-          Owned
-        </div>
-      </div>
-    </header>
+<div class="page">
 
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-panel">
-          <div class="hero-pills">
-            <span class="pill">
-              <span class="pill-dot"></span> Veteran Owned
-            </span>
-            <span class="pill">
-              <span class="pill-dot"></span> Live Bee Removal
-            </span>
-            <span class="pill">
-              <span class="pill-dot"></span> Swarm Rescue
-            </span>
-          </div>
-
-          <h1 class="hero-title">
-            Live <span>Honey Bee Removal</span> &amp; Swarm Rescue
-          </h1>
-
-          <p class="hero-sub">
-            Humane, chemical-free removals with safe relocation of honey bees —
-            not extermination. Serving Harris County and surrounding areas.
-          </p>
-
-          <div class="hero-cta-row">
-            <a class="hero-call-btn" href="tel:13466343852">
-              <span class="phone-icon">📞</span>
-              <span>Call Now — 346-634-3852</span>
-            </a>
-            <p class="hero-tap-note">
-              <strong>Tap to call</strong> 346-634-3852
-            </p>
-          </div>
-        </div>
-
-        <div class="hero-panel right">
-          <h2>Why Dinner Creek Bees?</h2>
-          <ul>
-            <li>Veteran owned and operated.</li>
-            <li>Focused on saving bees, not spraying them.</li>
-            <li>
-              Honest guidance on when a cut-out is needed and how to handle
-              repairs.
-            </li>
-            <li>Respect for your home, property, and safety.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <main>
-      <div class="content-grid">
-        <section class="card">
-          <h2>Services</h2>
-
-          <h3>Swarm Pickup</h3>
-          <p>
-            Clusters of bees hanging on a branch, fence, mailbox, or other
-            object.
-          </p>
-
-          <h3>Established Colonies in Structures</h3>
-          <p>
-            Bees inside walls, soffits, sheds, or other structures. I safely
-            remove and relocate bees and honeycomb, and work with you or your
-            contractor for repairs.
-          </p>
-
-          <h3>Humane Relocation</h3>
-          <p>
-            Bees are relocated to managed hives instead of exterminated — helping
-            local pollinators and your property at the same time.
-          </p>
-
-          <div class="notice-bar">
-            <strong>PLEASE DON’T SPRAY — CALL A BEEKEEPER.</strong>
-            &nbsp;Sprays and foams can drive bees deeper into walls, create
-            lasting odors, and leave behind honey that attracts ants, roaches,
-            and rodents. A proper removal and relocation protects your home and
-            the bees.
-          </div>
-        </section>
-
-        <aside class="card">
-          <h2>Service Area</h2>
-          <p class="service-area">
-            <strong>Harris County and surrounding areas in Southeast Texas.</strong>
-            Not sure if you’re in range? Call or text <strong>346-634-3852</strong> and
-            I’ll let you know what’s possible.
-          </p>
-        </aside>
-      </div>
-    </main>
-
-    <footer>
-      © 2026 <span>Dinner Creek Bees</span> · Veteran Owned · Harris County, TX
-    </footer>
+<header>
+  <div class="header-inner">
+    <div class="logo">DINNER CREEK BEES</div>
+    <div class="tagline">Live Honey Bee Removal • Southeast Texas • Veteran Owned</div>
   </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="panel">
+      <div class="pills">
+        <div class="pill">Veteran Owned</div>
+        <div class="pill">Live Removal</div>
+        <div class="pill">Swarm Rescue</div>
+      </div>
+
+      <h1>Live <span>Honey Bee Removal</span><br>& Swarm Rescue</h1>
+
+      <p>
+        Humane, chemical-free removals with safe relocation of honey bees —
+        not extermination. Serving Harris County and surrounding areas.
+      </p>
+
+      <div class="call-row">
+        <a class="call-btn" href="tel:13466343852">Call Now — 346-634-3852</a>
+        <div class="call-note">Tap to call</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Why Dinner Creek Bees?</h3>
+      <ul>
+        <li>Veteran owned and operated</li>
+        <li>Focused on saving bees — not spraying</li>
+        <li>Honest guidance on cut-outs and repairs</li>
+        <li>Respect for your home and safety</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="grid">
+    <div class="panel">
+      <h3>Services</h3>
+      <p><strong>Swarm Pickup</strong><br>Clusters on trees, fences, mailboxes.</p><br>
+      <p><strong>Established Colonies</strong><br>Walls, soffits, sheds, structures.</p><br>
+      <p><strong>Humane Relocation</strong><br>Relocated to managed hives.</p>
+
+      <div class="notice">
+        Please don’t spray — call a beekeeper.
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Service Area</h3>
+      <p>Harris County and surrounding Southeast Texas.</p>
+      <p>Call or text <strong>346-634-3852</strong> to confirm coverage.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 Dinner Creek Bees • Veteran Owned • Harris County, TX
+</footer>
+
+</div>
 </body>
 </html>
